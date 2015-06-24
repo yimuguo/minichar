@@ -20,13 +20,13 @@ worksheet = workbook.sheet_by_name('Minichar')
 #         cell_type = worksheet.cell_type(curr_row, curr_cell)
 #         cell_value = worksheet.cell_value(curr_row, curr_cell)
 #         print('	', cell_type, ':', cell_value)
-class SummaryType:
-    def __init__(self, output_type, vdd):
-        self.output_type = output_type
-        self.vdd = vdd
+class FindLimits:
+    def __init__(self, maxima, minima):
+        self.maxima = maxima
+        self.minima = minima
 
     def risetime(self, column):
-        minvals = worksheet.cell_values(20, column)
+        minvals = FindLimits.minima
         return minvals
 
 cell_value = worksheet.cell_value(15, 7)
