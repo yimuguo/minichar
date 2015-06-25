@@ -1,9 +1,7 @@
 __author__ = 'YG'
 import sys
-# from openpyxl import *
-# minichardata = sys.argv[0]
 import xlrd
-
+import re
 workbook = xlrd.open_workbook('test.xls')
 worksheet = workbook.sheet_by_name('Minichar')
 # num_rows = worksheet.nrows - 1
@@ -20,8 +18,16 @@ worksheet = workbook.sheet_by_name('Minichar')
 #         cell_type = worksheet.cell_type(curr_row, curr_cell)
 #         cell_value = worksheet.cell_value(curr_row, curr_cell)
 #         print('	', cell_type, ':', cell_value)
-def summary_output_type():
-    with open()
+# minichardata = sys.argv[0]
+def summary_output_type(summary_file):
+    output_type = []
+    search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']   # Search for it in summary txt file
+    for line in open(summary_file):
+        if any(x in line for x in search_for):
+            line = re.split("\s+", line)
+            output_type.append(line)
+    for output_type
+    return output_type
 
 
 def m1_output_type():
@@ -60,6 +66,7 @@ class FindLimits:
         minlist = worksheet.cell_value(self.spec, colnum)
         return minlist
 
-
+filename = ".\example\Summary-046_updated_final.txt"
+output_types = summary_output_type(filename)
 cell_value = worksheet.cell_value(15, 7)
 print(cell_value)
