@@ -25,9 +25,28 @@ def summary_output_type(summary_file):
     for line in open(summary_file):
         if any(x in line for x in search_for):
             line = re.split("\s+", line)
+                if 'LVCMOS' in line:
+                    if line[3] == '3.3':
+                        output_type.append(0)
+                    elif line[3] == '2.5':
+                        output_type.append(1)
+                    elif line[3] == '1.8':
+                        output_type.append(2)
+                elif 'LVCMOS2.5' in line:
+                    output_type.append(1)
+                elif 'LVCMOS1.8' in line:
+                    output_type.sppend(2)
+                elif 'HCSL' in line:
+                    output_type.append(3)
+                elif ('LVDS3.3' or 'LVDS2.5') in line:
+                    output_type.append(4)
+                elif 'LVDS1.8' in line:
+                    output_type.append(5)
+                elif 'LVPECL' in line:
+                    output_type.append(6)
+
             output_type.append(line)
-    for output_type
-    return output_type
+        return output_type
 
 
 def m1_output_type():
@@ -68,5 +87,6 @@ class FindLimits:
 
 filename = ".\example\Summary-046_updated_final.txt"
 output_types = summary_output_type(filename)
+output_types_from_m1 = m1_output_type()
 cell_value = worksheet.cell_value(15, 7)
 print(cell_value)
