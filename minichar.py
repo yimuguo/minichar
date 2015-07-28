@@ -82,6 +82,7 @@ class FindLimits:
         self.name = output_type
 
     def minima(self, colnum):
+
         minlist = worksheet.cell_value(self.spec, colnum)
         return minlist
 

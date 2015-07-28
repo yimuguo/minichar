@@ -1,0 +1,57 @@
+<aardvark>
+	<configure i2c="1" spi="0" gpio="0" tpower="0" pullups="1"/>
+	<i2c_bitrate khz="100"/>
+<sleep ms="500"/>
+
+
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">00 7F FF AA AA AA AA AA AA AA FF 01 AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA AA  </i2c_write>
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">6F 30 00 60 F0 00 4E 34 E1 00 00  </i2c_write>	Setup for Burn Bank 0 and Trim
+	<sleep ms="100"/>
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F8  </i2c_write>	Start Burn
+	<sleep ms="900"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F0  </i2c_write>	Reset Burn Start Bit
+	<sleep ms="5"/>
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">00 7F FF 55 55 55 55 55 55 55 FF 01 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 </i2c_write>
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">6F 30 00 60 F0 35 4E 61 E1 10 10 </i2c_write>	Setup for Burn Bank 1
+
+	<sleep ms="100"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F8  </i2c_write>	Start Burn
+	<sleep ms="900"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F0  </i2c_write>	Reset Burn Start Bit
+	<sleep ms="5"/>
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">00 7F FF FF FF FF FF FF FF FF FF 01 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF </i2c_write>
+
+
+00 00 00 00 00
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">6F 30 00 60 F0 62 4E 8E E1 10 10  </i2c_write>	Setup for Burn Bank 2
+	<sleep ms="100"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F8  </i2c_write>	Start Burn
+	<sleep ms="900"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F0  </i2c_write>	Reset Burn Start Bit
+	<sleep ms="5"/>
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">00 7F 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 </i2c_write>
+
+
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">6F 30 00 60 F0 8F 4E BB E1 10 10  </i2c_write>	Setup for Burn Bank 3
+	<sleep ms="100"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F8  </i2c_write>	Start Burn
+	<sleep ms="900"/>
+<i2c_write addr="0x6A" count="1" radix="16" nostop="0">72 F0  </i2c_write>	Reset Burn Start Bit
+	<sleep ms="5"/>
+
+<configure i2c="1" spi="0" gpio="0" tpower="0" pullups="1"/>
+	</aardvark>
