@@ -1,7 +1,7 @@
 __author__ = 'yguo'
 import sys
 #filename = sys.argv[0]
-import xml
+import xml.etree.cElementTree as ET
 
 filename = ".\example\Summary-046_updated_final.txt"
 SummaryFile = open(filename, 'r')
@@ -15,17 +15,14 @@ for line in SummaryFile:
         conf.append(line)
 i = 0
 
-for x in range(0,3):
+#for x in range(0,3):
 
 
-aarvark = xml.etree.cElementTree.Element("aarvark")
-configure = xml.etree.cElementTree.SubElement(aarvark, "configure")
+root = ET.Element("root")
+doc = ET.SubElement(root, "doc")
 
-xml.etree.cElementTree.SubElement(configure, "1", name="blah").text = "some value1"
-xml.etree.cElementTree.SubElement(configure, "field2", name="asdfasd").text = "some vlaue2"
+ET.SubElement(doc, "field1", name="blah").text = "some value1"
+ET.SubElement(doc, "field2", name="asdfasd").text = "some vlaue2"
 
-tree = xml.etree.cElementTree.ElementTree(root)
+tree = ET.ElementTree(root)
 tree.write("Aardvark Burn All Configs.xml")
-
-for line in conf:
-    print (line)
