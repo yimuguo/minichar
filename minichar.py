@@ -57,9 +57,12 @@ def m1_output_type():
     type_list_char = []
     type_list = []
     i = 5
-    while i < 10:
-        i += 1
-        type_list_char.append(worksheet.cell_value(16, i))
+    k = 0
+    while k < 4:
+        while i < 10:
+            i += 1
+            type_list_char.append(worksheet.cell_value(16, i))
+        k += 43
     for x in type_list_char:
         if 'LVCMOS3.3' in x:
             type_list.append(0)

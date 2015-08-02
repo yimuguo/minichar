@@ -1,11 +1,14 @@
 __author__ = 'yguo'
-import sys
-import re
-#filename = sys.argv[0]
-import xml.etree.cElementTree as ET
 
+import re
+import xml.etree.cElementTree as ET
+import glob
+import os
+os.chdir("./")
+for file in glob.glob("*summary*.txt"):
+    filename = file
 # Read Summary File
-filename = ".\\example\\Summary-046_updated_final.txt"
+# filename = ".\\example\\Summary-046_updated_final.txt"
 SummaryFile = open(filename, 'r')
 
 conf_string = []
@@ -43,7 +46,7 @@ if conf[0][:2] == '61':
 elif conf[0][:2] == '60':
     i2c_add = '0x68'
 else:
-    sys.exit('Configuration Strings Read Error of First Byte')
+    os.exit('Configuration Strings Read Error of First Byte')
 
 # Write Config Strings to Aardvark XML Batch File
 root = ET.Element("aardvark")
