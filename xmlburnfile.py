@@ -2,15 +2,18 @@ __author__ = 'yguo'
 
 import re
 import xml.etree.cElementTree as ET
+import xml.dom.minidom
 import glob
 import os
+
+# Read Summary File
 os.chdir("./")
 for file in glob.glob("*summary*.txt"):
     filename = file
-# Read Summary File
-# filename = ".\\example\\Summary-046_updated_final.txt"
 SummaryFile = open(filename, 'r')
+# filename = ".\\example\\Summary-046_updated_final.txt"
 
+# Read Hex Strings from Summary File
 conf_string = []
 conf = []
 output_freq = []
@@ -66,4 +69,8 @@ for x in range(0, 4):
         ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = "72 F0"
         ET.SubElement(root, "sleep", ms="5")
 
-ET.ElementTree(root).write("Aardvark Burn All Configs.xml")
+# ET.ElementTree(root).write("Aardvark Burn All Configs.xml")
+
+XMLFile = open("Aardvark Burn All Configs.xml", 'w+')
+PrintXML = xml.dom.minidom.parseString(ET.tostring(root)).toprettyxml()
+XMLFile.write(PrintXML)
