@@ -1,7 +1,7 @@
 <aardvark>
 	<configure i2c="1" spi="0" gpio="0" tpower="0" pullups="1"/>
 	<i2c_bitrate khz="100"/>
-<sleep ms="500"/>
+	<sleep ms="500"/>
 
 
 

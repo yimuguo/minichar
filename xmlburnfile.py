@@ -19,9 +19,9 @@ conf = []
 output_freq = []
 conf_enable = [1, 1, 1, 1]
 search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']
+output_num = 4
 for line in SummaryFile:
     if any(x in line for x in search_for):      # Read Frequency Across Configs
-        enable_flag = 0
         line = re.split('\s+', line)
         output_freq.append(line[1])
     elif ("Configuration" in line) and (len(line) > 20):
@@ -35,14 +35,12 @@ for line in SummaryFile:
         conf.append(conf_string)
 
 # Determine if Configs are active
-if output_freq[0] == '-----' == output_freq[1] == output_freq[2] == output_freq[3] == output_freq[4]:
-    conf_enable[0] = 0
-if output_freq[5] == '-----' == output_freq[6] == output_freq[7] == output_freq[8] == output_freq[9]:
-    conf_enable[1] = 0
-if output_freq[10] == '-----' == output_freq[11] == output_freq[12] == output_freq[13] == output_freq[14]:
-    conf_enable[2] = 0
-if output_freq[15] == '-----' == output_freq[16] == output_freq[17] == output_freq[18] == output_freq[19]:
-    conf_enable[3] = 0
+for i in range(0, 4):
+    conf_enable[i] = 0
+    for x in range(4*i, 4*i + int(len(output_freq) / 4)):
+        if output_freq[x] != '-----':
+            conf_enable[i] = 1
+            break
 
 if conf[0][:2] == '61':
     i2c_add = '0x6a'
@@ -59,9 +57,9 @@ ET.SubElement(root, "sleep", ms="500")
 for x in range(0, 4):
     if conf_enable[x] == 1:
         if x == 0:
-            ET.SubElement(root, "i2c_write", addr="0x6A", count="1", radix="16", nostop="0").text = conf[x]
+            ET.SubElement(root, "i2c_write", addr="0x6A", count="1", radix="16", nostop="0").text = '00 ' + conf[x]
         else:
-            ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = conf[x]
+            ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = '00 ' + conf[x]
         ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = "6F 30 00 60 F0 00 4E 34 E1 00 00"
         ET.SubElement(root, "sleep", ms="100")
         ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = "72 F8"
