@@ -1,0 +1,44 @@
+10 GSa/s for 10 Mpts @ off/250/off/off mV/div, 8/5/2015 6:18:57 PM
+M1 Waveform Tools v7.03.1.3 SN5295, LC WP760ZI, SN LCRY0719N52991
+Thresholds:  Ch. 2(20%/50%/80%)
+M1 Waveform Tools v7.03.1.3
+8/5/2015 6:35:58 PM
+Characterization Manager
+Reference information
+"1: Period (Ch. 2) [HV]"
+"2: Rise Time, Pos Rail (Ch. 2) [HV]"
+"3: Fall Time, Pos Rail (Ch. 2) [HV]"
+"4: Duty Cycle + (Ch. 2) [HV]"
+"5: ScopeView"
+"6: Cycle-Cycle (Ch. 2) [HV]"
+"7: Period16 (Ch. 2) [TV]"
+"8: Period16 (Ch. 2).Peak / Period16 (Ch. 2).Mean * 1e2"
+"9: Period 1000 (Ch. 2) [TV]"
+"10: PLL Individual"
+
+
+
+Scope settings:
+,"Ch. 2":
+,,Sample interval:,100.000ps
+,,Skew A:,-500.000µs
+,,Number of samples:,10000000
+
+,,,,,,,,,"Period (Ch. 2) [HV]","Rise Time, Pos Rail (Ch. 2) [HV]","Rise Time, Pos Rail (Ch. 2) [HV]","Rise Time, Pos Rail (Ch. 2) [HV]","Fall Time, Pos Rail (Ch. 2) [HV]","Fall Time, Pos Rail (Ch. 2) [HV]","Fall Time, Pos Rail (Ch. 2) [HV]","Duty Cycle + (Ch. 2) [HV]","Duty Cycle + (Ch. 2) [HV]","Duty Cycle + (Ch. 2) [HV]","Cycle-Cycle (Ch. 2) [HV]","Cycle-Cycle (Ch. 2) [HV]","Cycle-Cycle (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period 1000 (Ch. 2) [TV]","Period 1000 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","PLL Individual","PLL Individual","PLL Individual","ScopeView","ScopeView","ScopeView","ScopeView","Period (Ch. 2) [HV]","Period16 (Ch. 2).Peak / Period16 (Ch. 2).Mean * 1e2"
+,,,,,,,,,"Freq ","Min ","Mean ","Max ","Min ","Mean ","Max ","Min ","Mean ","Max ","Min ","Mean ","Max ","Pk_Pk ","StdDev ","Min ","Mean ","Max ","Pk_Pk ","StdDev ","Pk_Pk ","Min ","Mean ","StdDev ","Max ","FreqMin (Ch. 2)","FrqMean (Ch. 2)","FreqMax (Ch. 2)","Vlow Ch.2 ","Vhigh Ch.2 ","Vmin Ch.2 ","Vmax Ch.2 ","Count ","Spread16 % "
+,,,"Temp/VDD","Idd","S2S1S0","Type","Ideal Freq","Output","Freq (1)(MHz)","Min (2)(ps)","Mean (2)(ps)","Max (2)(ps)","Min (3)(ps)","Mean (3)(ps)","Max (3)(ps)","Min (4)(%)","Mean (4)(%)","Max (4)(%)","Min (6)(ps)","Mean (6)(ps)","Max (6)(ps)","Pk_Pk (1)(ps)","StdDev (1)(ps)","Min (1)(ns)","Mean (1)(ns)","Max (1)(ns)","Pk_Pk (9)(ps)","StdDev (9)(ps)","Pk_Pk (7)(ps)","Min (7)(ns)","Mean (7)(ns)","StdDev (7)(ps)","Max (7)(ns)","FreqMin (Ch. 2)(10)(KHz)","FrqMean (Ch. 2)(10)(KHz)","FreqMax (Ch. 2)(10)(KHz)","Vlow Ch.2 (5)(mV)","Vhigh Ch.2 (5)(mV)","Vmin Ch.2 (5)(mV)","Vmax Ch.2 (5)(mV)","Count (1)(KV)","Spread16 % (8)(s)"
+Mean,,,N/A,N/A,N/A,N/A,N/A,N/A,116.6659,297.6716,334.2777,403.0128,312.1198,355.2317,423.8635,0.4998,0.5033,0.5072,0.0003,11.8435,61.0764,65.4195,8.6464,8.6354,8.6667,8.7008,57.3732,6.4686,4.2303,8.6646,8.6667,0.5667,8.6688,26.8260,2177.0424,11668.7284,-741.9899,646.5073,-825.6354,819.7169,116.6633,0.0494
+Min,,,N/A,N/A,N/A,N/A,N/A,N/A,99.9994,281.6518,316.9933,383.4534,301.5212,351.1074,415.4247,0.4960,0.4991,0.5027,0.0001,10.8629,55.8249,59.8748,7.6933,7.9696,8.0000,8.0303,55.8575,5.7767,4.2171,7.9978,8.0000,0.5296,8.0021,23.6562,1842.8886,10002.6261,-748.6482,606.1873,-834.5132,816.7576,99.9980,0.0422
+Max,,,N/A,N/A,N/A,N/A,N/A,N/A,124.9992,328.7726,368.5828,427.3043,325.7192,362.4249,428.7364,0.5020,0.5056,0.5096,0.0006,13.7679,69.0528,72.9821,10.5487,9.9663,10.0001,10.0392,59.0236,7.0097,4.2442,9.9981,10.0001,0.6408,10.0024,29.2739,2382.1253,12503.6589,-730.7539,721.8761,-816.7576,825.6354,124.9960,0.0531
+SD,,,N/A,N/A,N/A,N/A,N/A,N/A,11.7850,21.9951,24.2577,18.2121,10.1041,5.1046,5.9909,0.0027,0.0030,0.0032,0.0002,1.3609,5.7337,5.5380,1.3451,0.9411,0.9428,0.9464,1.2961,0.5146,0.0111,0.9430,0.9428,0.0524,0.9429,2.3496,238.3114,1178.1133,7.9903,53.3372,7.2487,4.1850,11.7842,0.0051
+Count,,,N/A,N/A,N/A,N/A,N/A,N/A,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+
+Min loc.,Acq.#,,N/A,N/A,N/A,N/A,N/A,N/A,1,3,2,2,2,2,1,1,1,1,3,3,2,2,3,3,3,2,3,3,1,2,3,2,2,2,1,1,2,3,1,2,1,1
+Max loc.,Acq.#,,N/A,N/A,N/A,N/A,N/A,N/A,3,1,1,1,1,1,2,3,3,3,2,1,1,1,1,1,1,1,2,2,2,1,1,1,1,3,2,2,1,1,3,1,2,2
+
+,,,,,,,,,"Period (Ch. 2) [HV]","Rise Time, Pos Rail (Ch. 2) [HV]","Rise Time, Pos Rail (Ch. 2) [HV]","Rise Time, Pos Rail (Ch. 2) [HV]","Fall Time, Pos Rail (Ch. 2) [HV]","Fall Time, Pos Rail (Ch. 2) [HV]","Fall Time, Pos Rail (Ch. 2) [HV]","Duty Cycle + (Ch. 2) [HV]","Duty Cycle + (Ch. 2) [HV]","Duty Cycle + (Ch. 2) [HV]","Cycle-Cycle (Ch. 2) [HV]","Cycle-Cycle (Ch. 2) [HV]","Cycle-Cycle (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period (Ch. 2) [HV]","Period 1000 (Ch. 2) [TV]","Period 1000 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","Period16 (Ch. 2) [TV]","PLL Individual","PLL Individual","PLL Individual","ScopeView","ScopeView","ScopeView","ScopeView","Period (Ch. 2) [HV]","Period16 (Ch. 2).Peak / Period16 (Ch. 2).Mean * 1e2"
+,,,,,,,,,"Freq ","Min ","Mean ","Max ","Min ","Mean ","Max ","Min ","Mean ","Max ","Min ","Mean ","Max ","Pk_Pk ","StdDev ","Min ","Mean ","Max ","Pk_Pk ","StdDev ","Pk_Pk ","Min ","Mean ","StdDev ","Max ","FreqMin (Ch. 2)","FrqMean (Ch. 2)","FreqMax (Ch. 2)","Vlow Ch.2 ","Vhigh Ch.2 ","Vmin Ch.2 ","Vmax Ch.2 ","Count ","Spread16 % "
+Acq.#,Calc,Time,"Temp/VDD","Idd","S2S1S0","Type","Ideal Freq","Output","Freq (1)(MHz)","Min (2)(ps)","Mean (2)(ps)","Max (2)(ps)","Min (3)(ps)","Mean (3)(ps)","Max (3)(ps)","Min (4)(%)","Mean (4)(%)","Max (4)(%)","Min (6)(ps)","Mean (6)(ps)","Max (6)(ps)","Pk_Pk (1)(ps)","StdDev (1)(ps)","Min (1)(ns)","Mean (1)(ns)","Max (1)(ns)","Pk_Pk (9)(ps)","StdDev (9)(ps)","Pk_Pk (7)(ps)","Min (7)(ns)","Mean (7)(ns)","StdDev (7)(ps)","Max (7)(ns)","FreqMin (Ch. 2)(10)(KHz)","FrqMean (Ch. 2)(10)(KHz)","FreqMax (Ch. 2)(10)(KHz)","Vlow Ch.2 (5)(mV)","Vhigh Ch.2 (5)(mV)","Vmin Ch.2 (5)(mV)","Vmax Ch.2 (5)(mV)","Count (1)(KV)","Spread16 % (8)(s)"
+1,True,8/5/2015 6:15:52 PM,"'-40C/2.625",46A,'00,HCSL25,"100",Out3,99.9994,328.7726,368.5828,427.3043,325.7192,362.4249,415.4247,49.6018,49.9116,50.2678,0.0002,13.7679,69.0528,72.9821,10.5487,9.9663,10.0001,10.0392,57.2384,6.6194,4.2171,9.9981,10.0001,0.6408,10.0024,27.5480,1842.8886,10002.6261,-730.7539,721.8761,-834.5132,825.6354,99.9980,0.0422,
+2,True,6:18:10 PM,"'-40C/2.625",46A,'00,HCSL25,"100",Out4,124.9992,282.5903,316.9933,383.4534,301.5212,351.1074,428.7364,50.1446,50.5328,50.9238,0.0006,10.8996,55.8249,59.8748,7.6973,7.9704,8.0001,8.0303,59.0236,7.0097,4.2442,7.9978,8.0001,0.5296,8.0021,23.6562,2382.1253,12503.6589,-748.6482,611.4585,-825.6354,816.7576,124.9960,0.0531,
+3,True,6:19:03 PM,"'-40C/2.625",46A,'00,HCSL25,"100",NO,124.9992,281.6518,317.2569,398.2808,309.1190,352.1627,427.4293,50.2049,50.5555,50.9557,0.0001,10.8629,58.3515,63.4016,7.6933,7.9696,8.0000,8.0330,55.8575,5.7767,4.2296,7.9979,8.0000,0.5297,8.0021,29.2739,2306.1131,12499.9003,-746.5675,606.1873,-816.7576,816.7576,124.9960,0.0529,
