@@ -2,6 +2,7 @@ __author__ = 'YG'
 import sys
 import xlrd
 import re
+import csv
 # num_rows = worksheet.nrows - 1
 # num_cells = worksheet.ncols - 1
 # curr_row = -1
@@ -17,8 +18,8 @@ import re
 #         cell_value = worksheet.cell_value(curr_row, curr_cell)
 #         print('	', cell_type, ':', cell_value)
 # minichardata = sys.argv[0]
-workbook = xlrd.open_workbook('.\data\\5P49V5901A689NLGI_AK652C-008_MiniChar.xls')
-worksheet = workbook.sheet_by_name('Mini char ')
+# workbook = xlrd.open_workbook('.\data\\5P49V5901A689NLGI_AK652C-008_MiniChar.xls')
+# worksheet = workbook.sheet_by_name('Mini char ')
 
 # LVCMOS33 = 0 LVCMOS25 = 1 LVCMOS18 = 2 HCSL = 3 LVDS33/25 = 4 LVDS18 = 5 LVPECL = 6
 def summary_output_type(summary_file):
@@ -93,8 +94,9 @@ class FindLimits:
         value_list.append(worksheet.cell_value(self.spec, colnum))
         return value_list
 
+m1_data = '.\\newminichar\\newminichar.csv'
 filename = ".\data\\5P49V5901_20150401_045742_05212015_summary.txt"
 output_types = summary_output_type(filename)
 output_types_from_m1 = m1_output_type()
-cell_value = worksheet.cell_value(15, 7)
-print(cell_value)
+# cell_value = worksheet.cell_value(15, 7)
+# print(cell_value)
