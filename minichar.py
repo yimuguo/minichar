@@ -28,8 +28,8 @@ def summary_output_type(summary_file):
     output_type = []
     output_vdd = []
     output_freq = []
-    conf_enable = []
-    conf_string = []
+    conf_string = ['']
+    conf = []
     search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']   # Search for it in summary txt file
     for line in open(summary_file):
         if any(x in line for x in search_for):
@@ -38,11 +38,12 @@ def summary_output_type(summary_file):
             output_vdd.append(line[3])
             output_freq.append(line[1])
     for i in range(0, 4):
-        conf_enable[i] = 0
         for x in range(4*i, 4*i + int(len(output_freq) / 4)):
             if output_freq[x] != '-----':
-                conf_enable[i] = 1
+                conf_string += 'ON ' + ' '.join(output_type) + ' '.join(output_vdd) + '\n'
+                
                 break
+        conf_string = ''.join(conf_string)
     return output_type
 
 
@@ -90,6 +91,6 @@ class FindLimits:
 m1_data = '.\\newminichar\\newminichar.csv'
 filename = ".\data\\5P49V5901_20150401_045742_05212015_summary.txt"
 output_types = summary_output_type(filename)
-output_types_from_m1 = m1_output_type()
+# output_types_from_m1 = m1_output_type()
 # cell_value = worksheet.cell_value(15, 7)
 # print(cell_value)
