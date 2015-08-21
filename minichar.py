@@ -21,37 +21,29 @@ workbook = xlrd.open_workbook('.\data\\5P49V5901A689NLGI_AK652C-008_MiniChar.xls
 worksheet = workbook.sheet_by_name('Mini char ')
 
 # LVCMOS33 = 0 LVCMOS25 = 1 LVCMOS18 = 2 HCSL = 3 LVDS33/25 = 4 LVDS18 = 5 LVPECL = 6
+
+
 def summary_output_type(summary_file):
     output_type = []
+    output_vdd = []
+    output_freq = []
+    conf_enable = []
+    conf_string = []
     search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']   # Search for it in summary txt file
     for line in open(summary_file):
         if any(x in line for x in search_for):
             line = re.split("\s+", line)
-            if 'LVCMOS' in line[2]:
-                if line[3] == '3.3':
-                    output_type.append(0)
-                elif line[3] == '2.5':
-                    output_type.append(1)
-                elif line[3] == '1.8':
-                    output_type.append(2)
-                else:
-                    sys.exit('CMOS OUTPUTS HAS NO VDD')
-            elif 'HCSL' in line[2]:
-                output_type.append(3)
-            elif 'LVDS' in line[2]:
-                if line[3] == '3.3':
-                    output_type.append(4)
-                elif line[3] == '2.5':
-                    output_type.append(4)
-                elif line[3] == '1.8':
-                    output_type.append(5)
-                else:
-                    sys.exit('LVDS OUTPUTS HAS NO VDD')
-            elif 'LVPECL' in line[2]:
-                output_type.append(6)
-            else:
-                output_type.append('N')
+            output_type.append(line[2])
+            output_vdd.append(line[3])
+            output_freq.append(line[1])
+    for i in range(0, 4):
+        conf_enable[i] = 0
+        for x in range(4*i, 4*i + int(len(output_freq) / 4)):
+            if output_freq[x] != '-----':
+                conf_enable[i] = 1
+                break
     return output_type
+
 
 def m1_output_type():
     type_list_char = []
@@ -81,6 +73,7 @@ def m1_output_type():
         else:
             type_list.append('N')
     return type_list
+
 
 class FindLimits:
     def __init__(self, output_type, spec, rownum):
