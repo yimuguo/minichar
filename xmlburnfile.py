@@ -39,7 +39,7 @@ for i in range(0, 4):
     conf_enable[i] = 0
     for x in range(4*i, 4*i + int(len(output_freq) / 4)):
         if output_freq[x] != '-----':
-            conf_enable[i] = 1
+
             break
 
 if conf[0][:2] == '61':

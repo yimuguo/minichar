@@ -3,6 +3,8 @@ import sys
 import xlrd
 import re
 import csv
+import os
+import glob
 # num_rows = worksheet.nrows - 1
 # num_cells = worksheet.ncols - 1
 # curr_row = -1
@@ -23,28 +25,33 @@ import csv
 
 # LVCMOS33 = 0 LVCMOS25 = 1 LVCMOS18 = 2 HCSL = 3 LVDS33/25 = 4 LVDS18 = 5 LVPECL = 6
 
+os.chdir('./')
 
-def summary_output_type(summary_file):
+
+class SummaryConfig(object):
     output_type = []
     output_vdd = []
     output_freq = []
-    conf_string = ['']
-    conf = []
-    search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']   # Search for it in summary txt file
-    for line in open(summary_file):
-        if any(x in line for x in search_for):
-            line = re.split("\s+", line)
-            output_type.append(line[2])
-            output_vdd.append(line[3])
-            output_freq.append(line[1])
-    for i in range(0, 4):
-        for x in range(4*i, 4*i + int(len(output_freq) / 4)):
-            if output_freq[x] != '-----':
-                conf_string += 'ON ' + ' '.join(output_type) + ' '.join(output_vdd) + '\n'
-                
+    cfg_enable = [0]
+
+    def __init__(self, cfgnum):
+        self.cfgnum = cfgnum
+        for file in glob.glob("*summary*.txt"):
+            filename = file
+        search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']  # Search for it in summary txt file
+
+        for line in open(filename):
+            if any(x in line for x in search_for):
+                line = re.split("\s+", line)
+                self.output_type.append(line[2])
+                self.output_vdd.append(line[3])
+                self.output_freq.append(line[1])
+
+    def config_enable(self):
+        for x in range(4 * self.cfgnum + self.cfgnum, 4 * self.cfgnum + self.cfgnum + int(len(self.output_freq) / 4)):
+            if self.output_freq[x] != '-----':
+                self.cfg_enable = 1
                 break
-        conf_string = ''.join(conf_string)
-    return output_type
 
 
 def m1_output_type():
@@ -84,13 +91,17 @@ class FindLimits:
         self.name = output_type
 
     def values(self, colnum):
-
         value_list.append(worksheet.cell_value(self.spec, colnum))
         return value_list
 
+
 m1_data = '.\\newminichar\\newminichar.csv'
-filename = ".\data\\5P49V5901_20150401_045742_05212015_summary.txt"
-output_types = summary_output_type(filename)
+
+config1 = SummaryConfig(1)
+config1.config_enable()
+print(config1.cfg_enable)
+print(config1.output_vdd)
+print(config1.output_type)
 # output_types_from_m1 = m1_output_type()
 # cell_value = worksheet.cell_value(15, 7)
 # print(cell_value)

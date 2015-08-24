@@ -1,0 +1,83 @@
+IDT Timing Commander Settings
+Personality/Version: 5P49V5927 v1.30
+Created: 2015-07-29 09:08:31
+-------------------------------------------
+
+Part:		5P49V5927
+Product Family:	VersaClock 5
+Company name:	IDT
+Project Name	Dell 14G
+Operator:	Hariharan Kannan
+Dash Code:	505
+Comments:	
+-------------------------------------------------------------------------------------
+
+
+Configuration 0
+---------------
+Input frequencies:
+				En Global Shutdown: Off
+Crystal: 25.0MHz (primary)	    SD/OE Polarity: On         SDOE Pin: high
+Clk    : 0.0MHz          	  PrimSrc Polarity: Off     CLK_SEL Pin: low
+Load Caps (pF): CL=   6 (X1=12.5, X2=12.5)
+
+      	       MHz	Type    	VDDO	Slew	Skew	-----  Spread  -----
+CLK0  	        25 	LVCMOS  	3.3	1.0x 		KHz	%	Dir.
+CLK1  	        50 	LVCMOSX2	3.3	1.0x 	   0	----	----	----
+CLK2  	        50 	LVCMOSX2	3.3	1.0x 	   0	----	----	----
+CLK3  	       125 	LVCMOS1 	2.5	1.0x 	   0	----	----	----
+
+
+Configuration 1
+---------------
+Input frequencies:
+				En Global Shutdown: Off
+Crystal: 25.0MHz (primary)	    SD/OE Polarity: Off        SDOE Pin: low
+Clk    : 0.0MHz          	  PrimSrc Polarity: Off     CLK_SEL Pin: low
+Load Caps (pF): CL=   6 (X1=19, X2=19)
+
+      	       MHz	Type    	VDDO	Slew	Skew	-----  Spread  -----
+CLK0  	     ----- 	LVCMOS  	3.3	1.0x 		KHz	%	Dir.
+CLK1  	     ----- 	LVCMOS1 	3.3	1.0x 	   0	----	----	----
+CLK2  	     ----- 	LVCMOS1 	3.3	1.0x 	   0	----	----	----
+CLK3  	     ----- 	LVCMOS1 	3.3	1.0x 	   0	----	----	----
+
+
+Configuration 2
+---------------
+Input frequencies:
+				En Global Shutdown: Off
+Crystal: 25.0MHz (primary)	    SD/OE Polarity: Off        SDOE Pin: low
+Clk    : 0.0MHz          	  PrimSrc Polarity: Off     CLK_SEL Pin: low
+Load Caps (pF): CL=   6 (X1=19, X2=19)
+
+      	       MHz	Type    	VDDO	Slew	Skew	-----  Spread  -----
+CLK0  	     ----- 	LVCMOS  	3.3	1.0x 		KHz	%	Dir.
+CLK1  	     ----- 	LVCMOSD 	3.3	1.0x 	   0	----	----	----
+CLK2  	     ----- 	LVCMOSD 	3.3	1.0x 	   0	----	----	----
+CLK3  	     ----- 	LVCMOSD 	3.3	1.0x 	   0	----	----	----
+
+
+Configuration 3
+---------------
+Input frequencies:
+				En Global Shutdown: Off
+Crystal: 25.0MHz (primary)	    SD/OE Polarity: Off        SDOE Pin: low
+Clk    : 0.0MHz          	  PrimSrc Polarity: Off     CLK_SEL Pin: low
+Load Caps (pF): CL=   6 (X1=19, X2=19)
+
+      	       MHz	Type    	VDDO	Slew	Skew	-----  Spread  -----
+CLK0  	     ----- 	LVCMOS  	3.3	1.0x 		KHz	%	Dir.
+CLK1  	     ----- 	LVCMOSD 	3.3	1.0x 	   0	----	----	----
+CLK2  	     ----- 	LVCMOSD 	3.3	1.0x 	   0	----	----	----
+CLK3  	     ----- 	LVCMOSD 	3.3	1.0x 	   0	----	----	----
+
+
+
+Register Strings
+----------------
+Reg Addrs (hex):	00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F 30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F 40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F 60 61 62 63 64 65 66 67 68 69
+Configuration 0: 	60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 82 0C 35 34 00 03 8C 07 00 00 00 00 9F FF E0 80 00 81 00 00 00 00 00 00 00 00 04 00 01 01 C0 00 00 0C 00 00 00 00 00 00 00 00 04 00 00 01 C0 00 00 81 00 CC CC CC 00 00 00 00 04 00 00 00 B0 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 00 00 FB 01 FB 01 33 01 BB 00 FF F4 
+Configuration 1: 	60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 80 0C A1 A0 00 03 8C 07 00 00 00 00 9F FF D2 B2 00 00 00 00 00 00 00 00 00 00 04 00 00 00 E0 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 00 00 3B 00 3B 00 3B 00 3B 00 FF 04 
+Configuration 2: 	--
+Configuration 3: 	--
