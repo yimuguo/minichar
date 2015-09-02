@@ -3,28 +3,7 @@
 	<Configure gpio="0" i2c="1" pullups="1" spi="0" tpower="0"/>
 	<i2c_bitrate khz="100"/>
 	<sleep ms="500"/>
-	<i2c_write addr="0x6A" count="1" nostop="0" radix="16">00 60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 80 0C 01 00 00 03 8C 07 20 00 00 00 9F FF E0 80 00 81 02 00 00 00 00 00 00 00 04 00 00 00 90 00 00 81 01 00 00 02 00 03 15 2F 5C 00 01 00 E0 00 00 0C 01 00 00 02 00 00 00 2F 5C 00 00 00 E0 00 00 81 02 DB 6D B6 00 06 56 22 A4 00 00 00 A0 00 63 01 5B 01 5B 01 A3 01 FE FC </i2c_write>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">6F 30 00 60 F0 00 4E 34 E1 00 00</i2c_write>
-	<sleep ms="100"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F8</i2c_write>
-	<sleep ms="900"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F0</i2c_write>
-	<sleep ms="5"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">00 60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 80 0C 01 00 00 03 8C 07 20 00 00 00 9F FF E0 80 00 81 02 00 00 00 00 00 00 00 04 00 00 00 90 00 00 81 01 00 00 02 00 03 15 2F 5C 00 01 00 E0 00 00 0C 01 00 00 02 00 00 00 2F 5C 00 00 00 E0 00 00 81 02 DB 6D B4 00 00 00 00 04 00 00 00 A0 00 63 01 5B 01 5B 01 A3 01 FE FC </i2c_write>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">6F 30 00 60 F0 00 4E 34 E1 00 00</i2c_write>
-	<sleep ms="100"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F8</i2c_write>
-	<sleep ms="900"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F0</i2c_write>
-	<sleep ms="5"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">00 60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 80 0C 01 00 00 05 8C 07 20 00 00 00 9F FF E0 80 00 81 02 00 00 00 00 00 00 00 04 00 00 00 90 00 00 81 01 00 00 00 00 00 00 00 04 00 01 00 E0 00 00 0C 01 00 00 00 00 00 00 00 04 00 00 00 E0 00 00 81 02 DB 6D B6 00 06 56 22 A4 00 00 00 A0 00 63 01 5B 01 5B 01 A3 01 FE FC </i2c_write>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">6F 30 00 60 F0 00 4E 34 E1 00 00</i2c_write>
-	<sleep ms="100"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F8</i2c_write>
-	<sleep ms="900"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F0</i2c_write>
-	<sleep ms="5"/>
-	<i2c_write addr="0x68" count="1" nostop="0" radix="16">00 60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 80 0C 01 00 00 03 8C 07 20 00 00 00 9F FF E0 80 00 81 02 00 00 00 00 00 00 00 04 00 00 00 90 00 00 81 01 00 00 00 00 00 00 00 04 00 01 00 E0 00 00 0C 02 00 00 00 00 00 00 00 04 00 00 00 D0 00 00 81 02 DB 6D B4 00 00 00 00 04 00 00 00 A0 00 63 01 5B 01 5B 01 A3 01 FE FC </i2c_write>
+	<i2c_write addr="0x6A" count="1" nostop="0" radix="16">00 60 FF 00 00 00 00 00 00 00 FF 01 C0 00 B6 B4 92 82 0C 35 34 00 03 8C 07 00 00 00 00 9F FF E0 80 00 81 00 00 00 00 00 00 00 00 04 00 01 01 C0 00 00 0C 00 00 00 00 00 00 00 00 04 00 00 01 C0 00 00 81 00 CC CC CC 00 00 00 00 04 00 00 00 B0 00 00 00 00 00 00 00 00 00 00 00 04 00 00 00 00 00 FB 01 FB 01 33 01 BB 00 FF F4 </i2c_write>
 	<i2c_write addr="0x68" count="1" nostop="0" radix="16">6F 30 00 60 F0 00 4E 34 E1 00 00</i2c_write>
 	<sleep ms="100"/>
 	<i2c_write addr="0x68" count="1" nostop="0" radix="16">72 F8</i2c_write>

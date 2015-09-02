@@ -39,7 +39,7 @@ for i in range(0, 4):
     conf_enable[i] = 0
     for x in range(4*i, 4*i + int(len(output_freq) / 4)):
         if output_freq[x] != '-----':
-
+            conf_enable[i] = 1
             break
 
 if conf[0][:2] == '61':
@@ -54,7 +54,7 @@ root = ET.Element("aardvark")
 ET.SubElement(root, "Configure", i2c="1", spi="0", gpio="0", tpower="0", pullups="1")
 ET.SubElement(root, "i2c_bitrate", khz="100")
 ET.SubElement(root, "sleep", ms="500")
-OTPAdress = ['6F 30 00 60 F0 00 4E 34 E1 00 00', '6F 30 00 60 F0 35 4E 61 E1 10 10', '6F 30 00 60 F0 62 4E 8E E1 10 10', '6F 30 00 60 F0 8F 4E BB E1 10 10']
+OTPAddress = ['6F 30 00 60 F0 00 4E 34 E1 00 00', '6F 30 00 60 F0 35 4E 61 E1 10 10', '6F 30 00 60 F0 62 4E 8E E1 10 10', '6F 30 00 60 F0 8F 4E BB E1 10 10']
 for x in range(0, 4):
     if conf_enable[x] == 1:
         if x == 0:
@@ -62,7 +62,7 @@ for x in range(0, 4):
         else:
             ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = '00 ' + conf[x]
         
-        ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = "%s" % burnaddress[x]
+        ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = "%s" % OTPAddress[x]
         ET.SubElement(root, "sleep", ms="100")
         ET.SubElement(root, "i2c_write", addr="%s" % i2c_add, count="1", radix="16", nostop="0").text = "72 F8"
         ET.SubElement(root, "sleep", ms="900")
