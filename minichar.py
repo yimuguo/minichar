@@ -1,27 +1,9 @@
 __author__ = 'YG'
-import sys
-import xlrd
+import openpyxl
 import re
 import csv
 import os
 import glob
-# num_rows = worksheet.nrows - 1
-# num_cells = worksheet.ncols - 1
-# curr_row = -1
-# while curr_row < num_rows:
-#     curr_row += 1
-#     row = worksheet.row(curr_row)
-#     print('Row:', curr_row)
-#     curr_cell = -1
-#     while curr_cell < num_cells:
-#         curr_cell += 1
-#         # Cell Types: 0=Empty, 1=Text, 2=Number, 3=Date, 4=Boolean, 5=Error, 6=Blank
-#         cell_type = worksheet.cell_type(curr_row, curr_cell)
-#         cell_value = worksheet.cell_value(curr_row, curr_cell)
-#         print('	', cell_type, ':', cell_value)
-# minichardata = sys.argv[0]
-# workbook = xlrd.open_workbook('.\data\\5P49V5901A689NLGI_AK652C-008_MiniChar.xls')
-# worksheet = workbook.sheet_by_name('Mini char ')
 
 # LVCMOS33 = 0 LVCMOS25 = 1 LVCMOS18 = 2 HCSL = 3 LVDS33/25 = 4 LVDS18 = 5 LVPECL = 6
 
