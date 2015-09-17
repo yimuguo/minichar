@@ -18,8 +18,11 @@ class SummaryConfig(object):
 
     def __init__(self, cfgnum):
         self.cfgnum = cfgnum
-        for file in glob.glob("*summary*.txt"):
-            filename = file
+        try:
+            for file in glob.glob("*summary*.txt"):
+                filename = file
+        except RuntimeError:
+            os.error('No Summary File Here!')
         search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']  # Search for it in summary txt file
 
         for line in open(filename):
