@@ -8,16 +8,20 @@ import os
 
 # Read Summary File
 os.chdir("./")
-for file in glob.glob("*summary*.txt"):
-    filename = file
-SummaryFile = open(filename, 'r')
+try:
+    for file in glob.glob("*summary*.txt"):
+        filename = file
+        SummaryFile = open(filename, 'r')
+        break
+except RuntimeError:
+    os.error('No Summary Txt File Present')
 # filename = ".\\example\\Summary-046_updated_final.txt"
 
 # Read Hex Strings from Summary File
 conf_string = []
 conf = []
 output_freq = []
-conf_enable = [1, 1, 1, 1]
+conf_enable = [0, 0, 0, 0]
 search_for = ['CLK0', 'CLK1', 'CLK2', 'CLK3', 'CLK4']
 output_num = 4
 for line in SummaryFile:
@@ -36,8 +40,7 @@ for line in SummaryFile:
 
 # Determine if Configs are active
 for i in range(0, 4):
-    conf_enable[i] = 0
-    for x in range(4*i, 4*i + int(len(output_freq) / 4)):
+    for x in range(int(len(output_freq) / 4)*i, (1+i)*int(len(output_freq) / 4)):
         if output_freq[x] != '-----':
             conf_enable[i] = 1
             break
@@ -47,7 +50,7 @@ if conf[0][:2] == '61':
 elif conf[0][:2] == '60':
     i2c_add = '0x68'
 else:
-    os.exit('Configuration Strings Read Error of First Byte')
+    os.error('Configuration Strings Read Error of First Byte')
 
 # Write Config Strings to Aardvark XML Batch File
 root = ET.Element("aardvark")

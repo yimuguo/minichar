@@ -41,7 +41,7 @@ for line in SummaryFile:
 # Determine if Configs are active
 for i in range(0, 4):
     conf_enable[i] = 0
-    for x in range(4*i, 4*i + int(len(output_freq) / 4)):
+    for x in range(int(len(output_freq) / 4)*i, 4*i + int(len(output_freq) / 4)):
         if output_freq[x] != '-----':
             conf_enable[i] = 1
             break
