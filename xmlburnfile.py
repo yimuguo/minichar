@@ -13,7 +13,7 @@ try:
         filename = file
         SummaryFile = open(filename, 'r')
         break
-except RuntimeError:
+except (RuntimeError, TypeError, NameError):
     os.error('No Summary Txt File Present')
 # filename = ".\\example\\Summary-046_updated_final.txt"
 
