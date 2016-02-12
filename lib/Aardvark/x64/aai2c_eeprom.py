@@ -29,7 +29,7 @@
 #==========================================================================
 import sys
 
-from aardvark_py import *
+from lib.Aardvark.x64.aardvark_py import *
 
 
 #==========================================================================
@@ -106,18 +106,25 @@ def _readMemory (handle, device, addr, length):
 #==========================================================================
 # MAIN PROGRAM
 #==========================================================================
-if (len(sys.argv) < 7):
-    print "usage: aai2c_eeprom PORT BITRATE read  SLAVE_ADDR OFFSET LENGTH"
-    print "usage: aai2c_eeprom PORT BITRATE write SLAVE_ADDR OFFSET LENGTH"
-    print "usage: aai2c_eeprom PORT BITRATE zero  SLAVE_ADDR OFFSET LENGTH"
-    sys.exit()
+# if (len(sys.argv) < 7):
+#     print "usage: aai2c_eeprom PORT BITRATE read  SLAVE_ADDR OFFSET LENGTH"
+#     print "usage: aai2c_eeprom PORT BITRATE write SLAVE_ADDR OFFSET LENGTH"
+#     print "usage: aai2c_eeprom PORT BITRATE zero  SLAVE_ADDR OFFSET LENGTH"
+#     sys.exit()
 
-port    = int(sys.argv[1])
-bitrate = int(sys.argv[2])
-command = sys.argv[3]
-device  = int(sys.argv[4], 0)
-addr    = int(sys.argv[5], 0)
-length  = int(sys.argv[6])
+# port    = int(sys.argv[1])
+# bitrate = int(sys.argv[2])
+# command = sys.argv[3]
+# device  = int(sys.argv[4], 0)
+# addr    = int(sys.argv[5], 0)
+# length  = int(sys.argv[6])
+
+port    = 0
+bitrate = 400
+command = "read"
+device  = 0x6a
+addr    = 00
+length  = 3
 
 handle = aa_open(port)
 if (handle <= 0):
@@ -131,12 +138,12 @@ aa_configure(handle,  AA_CONFIG_SPI_I2C)
 # Enable the I2C bus pullup resistors (2.2k resistors).
 # This command is only effective on v2.0 hardware or greater.
 # The pullup resistors on the v1.02 hardware are enabled by default.
-aa_i2c_pullup(handle, AA_I2C_PULLUP_BOTH)
+aa_i2c_pullup(handle, AA_I2C_PULLUP_NONE)
 
 # Power the EEPROM using the Aardvark adapter's power supply.
 # This command is only effective on v2.0 hardware or greater.
 # The power pins on the v1.02 hardware are not enabled by default.
-aa_target_power(handle, AA_TARGET_POWER_BOTH)
+aa_target_power(handle, AA_TARGET_POWER_NONE)
 
 # Set the bitrate
 bitrate = aa_i2c_bitrate(handle, bitrate)
