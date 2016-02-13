@@ -92,6 +92,8 @@ def _readMemory (handle, device, addr, length):
     # Dump the data to the screen
     sys.stdout.write("\nData read from device:")
     for i in range(count):
+        print(data_in[i])
+    for i in range(count):
         if ((i&0x0f) == 0):
             sys.stdout.write("\n%04x:  " % (addr+i))
 
@@ -121,20 +123,20 @@ def _readMemory (handle, device, addr, length):
 
 port    = 0
 bitrate = 400
-command = "read"
+command = "write"
 device  = 0x6a
 addr    = 00
-length  = 3
+length  = 106
 
 handle = aa_open(port)
 if (handle <= 0):
     print "Unable to open Aardvark device on port %d" % port
     print "Error code = %d" % handle
     sys.exit()
-    
+
 # Ensure that the I2C subsystem is enabled
 aa_configure(handle,  AA_CONFIG_SPI_I2C)
-    
+
 # Enable the I2C bus pullup resistors (2.2k resistors).
 # This command is only effective on v2.0 hardware or greater.
 # The pullup resistors on the v1.02 hardware are enabled by default.
