@@ -62,7 +62,7 @@ except ImportError, ex1:
     import imp, platform
     ext = platform.system() in ('Windows', 'Microsoft') and '.dll' or '.so'
     try:
-        api = imp.load_dynamic('aardvark', 'aardvark' + ext)
+        api = imp.load_dynamic('aardvark', '.\\lib\\Aardvark\\win32\\aardvark' + ext)
     except ImportError, ex2:
         import_err_msg  = 'Error importing aardvark%s\n' % ext
         import_err_msg += '  Architecture of aardvark%s may be wrong\n' % ext

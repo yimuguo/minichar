@@ -1,16 +1,18 @@
 #!/bin/env python
-
+import struct
 import sys
-
-from .Aardvark.x64.aardvark_py import *
-
+if struct.calcsize("P") * 8 == 32:
+    from lib.Aardvark.win32.aardvark_py import *
+else:
+    from lib.Aardvark.x64.aardvark_py import *
 # CONSTANTS
 BUS_TIMEOUT = 150  # ms
-
-
+PAGE_SIZE = 8
 # ==========================================================================
 # FUNCTIONS
 # ==========================================================================
+
+
 def vc5_write_i2c(handle, device, addr, length, zero):
     # Write to the I2C EEPROM
     #

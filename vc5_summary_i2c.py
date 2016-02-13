@@ -1,7 +1,6 @@
 from lib.vc5_summary import VC5Get
 from lib.aa_i2c import *
-
-# ===================Read Specific Summary File From Input===================================
+# ===================Read Specific Summary File From Input==================
 file_input = sys.argv[0]
 vc5 = VC5Get(file_input, 1, True)
 
