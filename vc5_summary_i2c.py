@@ -1,9 +1,11 @@
 from lib.vc5_summary import VC5Get
 from lib.aa_i2c import *
+sys.path.append("./pycharm-debug.egg")
+import pydevd
 # ===================Read Specific Summary File From Input==================
 file_input = sys.argv[0]
 vc5 = VC5Get(file_input, 1, True)
-
+pydevd.settrace('157.165.228.82', port=62930, stdoutToServer=True, stderrToServer=True)
 # ==========================================================================
 # I2C R/W MAIN PROGRAM
 # ==========================================================================
