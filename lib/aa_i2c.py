@@ -12,13 +12,18 @@ class AAReadWrite:
     bus_timeout = 150   # ms
 
     def __init__(self, port, i2c_add, pullup=False):
-        if i2c_add is str:
+        if type(i2c_add) is str:
             self.i2c_add = int(i2c_add, 16)
+            if self.i2c_add | 1000000 > 127:
+                print("Aardvark Only use 7bit I2C address rather than 8bit\n"
+                      "e.g. D4 is 0x6a")
+        elif type(i2c_add) is int:
+            self.i2c_add = i2c_add
         self.pullup = pullup
         self.handle = aa_open(port)
         if self.handle <= 0:
-            print "Unable to open Aardvark device on port %d" % port
-            print "Error code = %d" % self.handle
+            print("Unable to open Aardvark device on port %d" % port)
+            print("Error code = %d" % self.handle)
             sys.exit()
         self.aa_init()
 
@@ -49,18 +54,16 @@ class AAReadWrite:
         print "Bus lock timeout set to %d ms" % bus_timeout
 
     def aa_write_i2c(self, str_addr, wrt_lst):
-        # Write to the I2C EEPROM
-        #
-        # The AT24C02 EEPROM has 8 byte pages.  Data can written
-        # in pages, to reduce the number of overall I2C transactions
-        # executed through the Aardvark adapter.
-        if str_addr is str:
-            wrt_lst.insert(int(str_addr, 16), wrt_lst)
+        # Write to the I2C Memory
+        if type(str_addr) is str:
+            wrt_lst.insert(0, int(str_addr, 16))
+        elif type(str_addr) is int:
+            wrt_lst.insert(0, str_addr)
         for x in range(len(wrt_lst)):
-            if wrt_lst[x] is str:
-                wrt_lst[x] = int(x, 16)
-            elif wrt_lst[x] is hex:
-                wrt_lst[x] = int(wrt_lst)
+            if type(wrt_lst[x]) is str:
+                wrt_lst[x] = int(wrt_lst[x], 16)
+            elif type(wrt_lst[x]) is hex:
+                wrt_lst[x] = int(wrt_lst[x])
         aa_i2c_write(self.handle, self.i2c_add, AA_I2C_NO_FLAGS, array('B', wrt_lst))
         aa_sleep_ms(10)
     
@@ -86,3 +89,6 @@ class AAReadWrite:
                 sys.stdout.write(" ")
         # Dump the data to the screen
         return data_in
+
+    def close(self):
+        aa_close(self.handle)
