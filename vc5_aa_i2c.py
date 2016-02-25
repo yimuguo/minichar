@@ -7,7 +7,7 @@ FILE_INPUT = sys.argv[1]
 
 
 # ===================Create VC5 Object from Summary=========================
-class VC5ReadWriteAA(object):
+class VC5ReadWriteAA(AAReadWrite):
 
     def __init__(self, summaryfilepath, cfgnum):
         self.file = summaryfilepath
@@ -15,27 +15,27 @@ class VC5ReadWriteAA(object):
         self.vc5 = VC5Get(self.file, 1, True)
         self.device = int(self.vc5.i2c_address, 16)/2
         # Initiate Aardvark and Setup I2C Comm Speed
-        self.rw_vc5 = AAReadWrite(0, self.device)
+        super(VC5ReadWriteAA, self).__init__(0, self.device)
         self.write_addr()
         self.wr_vc5_cfg(self.cfgnum)
         self.vc5_read = self.rd_vc5_cfg()
         self.rw_compare(self.cfgnum)
-        self.rw_vc5.close()
+        self.close()
 
     def write_addr(self):
         if self.vc5.i2c_address == 'D0':
-            self.rw_vc5.i2c_add = 0x6a
-            self.rw_vc5.aa_write_i2c(0, [0x60])
-            self.rw_vc5.i2c_add = self.device
+            self.i2c_add = 0x6a
+            self.aa_write_i2c(0, [0x60])
+            self.i2c_add = self.device
 
     def rd_vc5_cfg(self):
-        return self.rw_vc5.aa_read_i2c(0)
+        return self.aa_read_i2c(0)
 
     def wr_vc5_cfg(self, cfgnum):
         # First Configure First I2C Add Register
         vc5_write_reg = [x for x in self.vc5.conf[cfgnum] if x != '']
         # Write Configs into the Chip
-        self.rw_vc5.aa_write_i2c(0, vc5_write_reg)
+        self.aa_write_i2c(0, vc5_write_reg)
         # Read and Confirm the Strings Match Summary
 
     # Close the device

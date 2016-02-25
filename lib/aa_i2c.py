@@ -255,7 +255,7 @@ AA_I2C_SIZED_READ = 0x10
 AA_I2C_SIZED_READ_EXTRA1 = 0x20
 
 
-class AAReadWrite:
+class AAReadWrite(object):
     length = 106
     bitrate = 400  # Khz
     bus_timeout = 150  # ms
