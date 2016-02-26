@@ -9,11 +9,10 @@ FILE_INPUT = sys.argv[1]
 # ===================Create VC5 Object from Summary=========================
 class VC5ReadWriteAA(AAReadWrite):
 
-    def __init__(self, summaryfilepath, cfgnum):
+    def __init__(self, summary_path, cfgnum):
         self.cfgnum = cfgnum
-        self.vc5 = VC5Get(summaryfilepath, 1, True)
+        self.vc5 = VC5Get(summary_path, 1, True)
         self.device = int(self.vc5.i2c_address, 16)/2
-        # Initiate Aardvark and Setup I2C Comm Speed
         super(VC5ReadWriteAA, self).__init__(0, self.device)
         self.write_addr()
         self.wrt_vc5_cfg(self.cfgnum)
@@ -55,9 +54,10 @@ class VC5ReadWriteAA(AAReadWrite):
             if vc5_read[i] != int(self.vc5.conf[cfgnum][i], 16):
                 match_flag = False
                 print("Byte %s Read Back Does not Match File!\n", str(i))
-                raise Warning
         if match_flag:
             print("\nReadback Match")
+        else:
+            raise Warning("Read Back does NOT MATCH")
 
 
 def main():
@@ -65,4 +65,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

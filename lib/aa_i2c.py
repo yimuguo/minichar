@@ -118,7 +118,8 @@ def aa_i2c_bitrate(aardvark, bitrate_khz):
 
 # Read a stream of bytes from the I2C slave device.
 def aa_i2c_read(aardvark, slave_addr, flags, data_in):
-    """usage: (int return, u08[] data_in) = aa_i2c_read(Aardvark aardvark, u16 slave_addr, AardvarkI2cFlags flags, u08[] data_in)
+    """usage: (int return, u08[] data_in) = aa_i2c_read(Aardvark aardvark, u16 slave_addr,
+    AardvarkI2cFlags flags, u08[] data_in)
 
     All arrays can be passed into the API as an ArrayType object or as
     a tuple (array, length), where array is an ArrayType object and
@@ -326,18 +327,18 @@ class AAReadWrite(object):
             raise ValueError
         elif count == 0:
             print "error: no bytes read"
-            print "  are you sure you have the right slave address?"
+            print " please check device I2C address settings"
             raise ValueError
         elif count != self.length:
             print "error: read %d bytes (expected %d)" % (count, self.length)
             raise ValueError
-        sys.stdout.write("\nData read from device:")
-        for i in range(count):
-            if (i & 0x0f) == 0:
-                sys.stdout.write("\n%04x:  " % (self.i2c_add + i))
-            sys.stdout.write("%02x " % (data_in[i] & 0xff))
-            if ((i + 1) & 0x07) == 0:
-                sys.stdout.write(" ")
+        # sys.stdout.write("\nData read from device:")
+        # for i in range(count):
+        #     if (i & 0x0f) == 0:
+        #         sys.stdout.write("\nByte 0x%02x to 0x%02x:  " % ((str_addr + i), (str_addr + i + 15)))
+        #     sys.stdout.write("%02x " % (data_in[i] & 0xff))
+        #     if ((i + 1) & 0x07) == 0:
+        #         sys.stdout.write(" ")
         # Dump the data to the screen
         return data_in
 
