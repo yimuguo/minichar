@@ -308,6 +308,7 @@ class AAReadWrite(object):
             wrt_lst.insert(0, int(str_addr, 16))
         elif type(str_addr) is int:
             wrt_lst.insert(0, str_addr)
+
         for x in range(len(wrt_lst)):
             if type(wrt_lst[x]) is str:
                 wrt_lst[x] = int(wrt_lst[x], 16)
@@ -322,13 +323,14 @@ class AAReadWrite(object):
         (count, data_in) = aa_i2c_read(self.handle, self.i2c_add, AA_I2C_NO_FLAGS, self.length)
         if count < 0:
             print "error: %s" % aa_status_string(count)
-            return
+            raise ValueError
         elif count == 0:
             print "error: no bytes read"
             print "  are you sure you have the right slave address?"
-            return
+            raise ValueError
         elif count != self.length:
             print "error: read %d bytes (expected %d)" % (count, self.length)
+            raise ValueError
         sys.stdout.write("\nData read from device:")
         for i in range(count):
             if (i & 0x0f) == 0:

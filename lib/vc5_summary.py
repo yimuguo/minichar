@@ -39,11 +39,17 @@ class VC5Get(object):
                 if line[2] == '60':
                     self.i2c_address = 'D0'
                 line = line[2:]
+                line = [x for x in line if x != '']
                 if self.vco_mon is False:
                     line[0x11] = '3F'
                     line[0x1c] = str(hex(int(line[0x1c], 16) & 0b01111111).zfill(2))[2:]
                     line[0x1d] = str(hex(int(line[0x1d], 16) & 0b11111101).zfill(2))[2:]
                     line[0x16] = str(hex(int(line[0x16], 16) & 0b11110111).zfill(2))[2:]
+                elif self.vco_mon is True:
+                    line[0x11] = str(hex(int(line[0x1c], 16) & 0b11011111).zfill(2))[2:]
+                    line[0x1c] = str(hex(int(line[0x1c], 16) | 0b10000000).zfill(2))[2:]
+                    line[0x1d] = str(hex(int(line[0x1c], 16) | 0b00000010).zfill(2))[2:]
+                    line[0x16] = str(hex(int(line[0x1c], 16) | 0b00001000).zfill(2))[2:]
                 # self.conf_string = ' '.join(line)
                 self.conf.append(line)
 
