@@ -45,7 +45,8 @@ try:
 except ImportError, ex1:
     import imp
     import platform
-    ext = platform.system() in ('Windows', 'Microsoft') and '.dll' or '.so'
+    # ext = platform.system() in ('Windows', 'Microsoft') and '.dll' or '.so'
+    ext = '.dll'
     try:
         if struct.calcsize("P") * 8 == 32:
             api = imp.load_dynamic('aardvark', '.\\lib\\Aardvark\\win32\\aardvark' + ext)
